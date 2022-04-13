@@ -1,0 +1,682 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+extended_standby_para_info
+                    0x224             drivers/soc/sunxi/pm/standby/standby.o
+power_regu_tree     0x50              drivers/soc/sunxi/pm/standby/standby.o
+pm_info             0x78              drivers/soc/sunxi/pm/standby/standby.o
+normal_standby_para_info
+                    0x14              drivers/soc/sunxi/pm/standby/standby.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                __standby_start = .
+
+.text           0x00000000f0000000     0x3728
+ drivers/soc/sunxi/pm/standby/standby.o(.text.startup)
+ *(.text)
+ .text          0x00000000f0000000      0x5c4 drivers/soc/sunxi/pm/standby/standby.o
+                0x00000000f0000000                standby_main
+ .text          0x00000000f00005c4       0x30 drivers/soc/sunxi/pm/standby/common.o
+                0x00000000f00005c4                standby_memcpy
+ .text          0x00000000f00005f4      0x4f4 drivers/soc/sunxi/pm/standby/standby_clock.o
+                0x00000000f00005f4                standby_clk_init
+                0x00000000f0000610                standby_clk_exit
+                0x00000000f0000618                standby_clk_core2losc
+                0x00000000f0000638                standby_clk_core2hosc
+                0x00000000f0000670                standby_clk_core2pll
+                0x00000000f00006a8                standby_clk_plldisable
+                0x00000000f00006e0                standby_clk_pllenable
+                0x00000000f0000718                standby_clk_hoscdisable
+                0x00000000f0000750                standby_clk_hoscenable
+                0x00000000f0000788                standby_clk_ldodisable
+                0x00000000f00007c0                standby_clk_ldoenable
+                0x00000000f00007f8                standby_clk_setdiv
+                0x00000000f0000898                standby_clk_getdiv
+                0x00000000f000091c                standby_clk_set_pll_factor
+                0x00000000f000096c                standby_clk_get_pll_factor
+                0x00000000f00009b4                standby_clk_apb2losc
+                0x00000000f00009e4                standby_clk_apb2hosc
+                0x00000000f0000a1c                standby_clk_bus_src_backup
+                0x00000000f0000a48                standby_clk_bus_src_set
+                0x00000000f0000a98                standby_clk_bus_src_restore
+                0x00000000f0000ac4                standby_clk_dramgating
+ .text          0x00000000f0000ae8       0x20 drivers/soc/sunxi/pm/standby/standby_ir.o
+                0x00000000f0000ae8                standby_ir_init
+                0x00000000f0000af0                standby_ir_exit
+                0x00000000f0000af8                standby_ir_detect
+                0x00000000f0000b00                standby_ir_verify
+ .text          0x00000000f0000b08       0xa4 drivers/soc/sunxi/pm/standby/standby_key.o
+                0x00000000f0000b08                standby_key_init
+                0x00000000f0000b64                standby_key_exit
+                0x00000000f0000b84                standby_query_key
+ .text          0x00000000f0000bac      0x408 drivers/soc/sunxi/pm/standby/axp209_power.o
+                0x00000000f0000dd4                axp209_set_volt
+                0x00000000f0000f5c                axp209_recovery_volt
+ .text          0x00000000f0000fb4       0xe4 drivers/soc/sunxi/pm/standby/standby_power.o
+                0x00000000f0000fb4                standby_set_power
+                0x00000000f0001040                standby_recovery_power
+ .text          0x00000000f0001098      0x328 drivers/soc/sunxi/pm/standby/standby_twi.o
+                0x00000000f0001098                standby_twi_init
+                0x00000000f00010e8                standby_twi_exit
+                0x00000000f0001120                twi_byte_rw
+ .text          0x00000000f00013c0       0x20 drivers/soc/sunxi/pm/standby/standby_usb.o
+                0x00000000f00013c0                standby_usb_init
+                0x00000000f00013c8                standby_usb_exit
+                0x00000000f00013d0                standby_is_usb_status_change
+                0x00000000f00013d8                standby_query_usb_event
+ .text          0x00000000f00013e0        0x0 drivers/soc/sunxi/pm/standby/standby_delay.o
+ .text          0x00000000f00013e0      0x184 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+                0x00000000f00013e0                busy_waiting
+                0x00000000f0001400                save_mem_flag
+                0x00000000f0001404                clear_mem_flag
+                0x00000000f0001408                mem_status_init
+                0x00000000f000140c                mem_status_init_nommu
+                0x00000000f0001410                mem_status_clear
+                0x00000000f0001430                mem_status_exit
+                0x00000000f0001434                save_mem_status
+                0x00000000f000145c                get_mem_status
+                0x00000000f000146c                show_mem_status
+                0x00000000f00014a8                save_mem_status_nommu
+                0x00000000f00014c8                save_cpux_mem_status_nommu
+                0x00000000f00014e8                io_init
+                0x00000000f0001500                io_init_high
+                0x00000000f0001518                io_init_low
+                0x00000000f0001530                io_high
+ .text          0x00000000f0001564      0x200 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+                0x00000000f0001564                init_perfcounters
+                0x00000000f0001598                backup_perfcounter
+                0x00000000f00015b4                restore_perfcounter
+                0x00000000f00015d0                get_cyclecount
+                0x00000000f00015d8                reset_counter
+                0x00000000f00015e8                change_runtime_env
+                0x00000000f0001618                delay_us
+                0x00000000f00016ac                delay_ms
+                0x00000000f00016e0                init_event_counter
+                0x00000000f000170c                set_event_counter
+                0x00000000f0001738                get_event_counter
+ *fill*         0x00000000f0001764       0x1c 
+ .text          0x00000000f0001780       0xe0 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+                0x00000000f0001780                save_mmu_state
+                0x00000000f00017bc                restore_secure_mmu_state
+                0x00000000f0001808                restore_mmu_state
+ .text          0x00000000f0001860      0x544 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+                0x00000000f0001860                save_sp
+                0x00000000f000186c                save_sp_nommu
+                0x00000000f0001878                restore_sp
+                0x00000000f0001880                get_sp
+                0x00000000f0001890                get_cur_cluster_id
+                0x00000000f00018a0                invalidate_dcache
+                0x00000000f0001934                invalidate_icache
+                0x00000000f000194c                flush_dcache
+                0x00000000f00019e8                flush_icache
+                0x00000000f0001a0c                disable_cache
+                0x00000000f0001a2c                disable_dcache
+                0x00000000f0001a48                disable_icache
+                0x00000000f0001a64                disable_l2cache
+                0x00000000f0001a80                enable_cache
+                0x00000000f0001aa0                enable_icache
+                0x00000000f0001abc                invalidate_branch_predictor
+                0x00000000f0001ad4                disable_program_flow_prediction
+                0x00000000f0001af0                enable_program_flow_prediction
+                0x00000000f0001b0c                mem_flush_tlb
+                0x00000000f0001b30                mem_preload_tlb
+                0x00000000f0001c3c                disable_mmu
+                0x00000000f0001c74                enable_mmu
+                0x00000000f0001cb4                jump_to_suspend
+                0x00000000f0001cd0                jump_to_resume
+                0x00000000f0001cf0                jump_to_resume0
+                0x00000000f0001d00                jump_to_resume0_nommu
+ .text          0x00000000f0001da4      0x50c drivers/soc/sunxi/pm/standby/./../mem_serial.o
+                0x00000000f0001eec                serial_exit
+                0x00000000f0001f20                serial_init_nommu
+                0x00000000f0001fa4                serial_puts_nommu
+                0x00000000f000203c                serial_gets_nommu
+                0x00000000f00020d0                serial_init_manager
+                0x00000000f00020e4                serial_exit_manager
+                0x00000000f00020f8                serial_init
+                0x00000000f0002184                serial_puts
+                0x00000000f000221c                serial_gets
+ .text          0x00000000f00022b0      0x830 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+                0x00000000f00024f8                printk
+                0x00000000f00027ec                printk_nommu
+ .text          0x00000000f0002ae0      0x1dc drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+                0x00000000f0002ae0                standby_delay
+                0x00000000f0002b08                standby_delay_cycle
+                0x00000000f0002b14                Ldiv0
+                0x00000000f0002b24                __aeabi_uidiv
+                0x00000000f0002bc0                __aeabi_idiv
+                0x00000000f0002c8c                __aeabi_uidivmod
+                0x00000000f0002ca4                __aeabi_idivmod
+ .text          0x00000000f0002cbc       0x5c drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+                0x00000000f0002cbc                __mem_div0
+                0x00000000f0002cc8                raw_lib_udiv
+ .text          0x00000000f0002d18      0x180 drivers/soc/sunxi/pm/standby/./../mem_int.o
+                0x00000000f0002d18                mem_int_init
+                0x00000000f0002da8                mem_int_exit
+                0x00000000f0002df8                mem_enable_int
+                0x00000000f0002e44                mem_query_int
+ .text          0x00000000f0002e98       0xa0 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+                0x00000000f0002e98                mem_gpio_save
+                0x00000000f0002ec4                mem_gpio_restore
+                0x00000000f0002ef0                config_gpio_clk
+ .text          0x00000000f0002f38      0x1e0 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+                0x00000000f0002f38                mem_tmr_save
+                0x00000000f0002f90                mem_tmr_restore
+                0x00000000f0002fe0                mem_tmr_init
+                0x00000000f0003014                mem_tmr_exit
+                0x00000000f000303c                mem_tmr_enable_watchdog
+                0x00000000f0003084                mem_tmr_disable_watchdog
+                0x00000000f00030c4                mem_tmr_set
+ .text          0x00000000f0003118        0x0 drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .text          0x00000000f0003118      0x358 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+                0x00000000f0003118                mem_clk_init
+                0x00000000f0003154                mem_get_ba
+                0x00000000f0003164                mem_pio_clk_src_init
+                0x00000000f0003188                mem_pio_clk_src_exit
+                0x00000000f00031a4                mem_clk_save
+                0x00000000f00031e0                mem_clk_restore
+                0x00000000f0003214                mem_clk_setdiv
+                0x00000000f000328c                mem_clk_getdiv
+                0x00000000f00032d4                mem_clk_set_pll_factor
+                0x00000000f0003330                mem_clk_get_pll_factor
+                0x00000000f0003374                mem_clk_set_misc
+                0x00000000f00033d8                mem_clk_get_misc
+                0x00000000f0003408                mem_clk_get_cpu_freq
+ .text          0x00000000f0003470      0x250 drivers/soc/sunxi/pm/standby/./dram/standby.o
+                0x00000000f0003470                standby_set_dram_crc_paras
+                0x00000000f0003490                standby_dram_crc
+                0x00000000f0003518                dram_power_save_process
+                0x00000000f00035d8                dram_power_up_process
+ *(.rodata)
+ .rodata        0x00000000f00036c0       0x40 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .rodata        0x00000000f0003700        0xc drivers/soc/sunxi/pm/standby/standby_twi.o
+ .rodata        0x00000000f000370c       0x10 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .rodata        0x00000000f000371c        0xc drivers/soc/sunxi/pm/standby/./../mem_serial.o
+
+.rodata.str1.4  0x00000000f0003728      0x16c
+ .rodata.str1.4
+                0x00000000f0003728       0xa2 drivers/soc/sunxi/pm/standby/standby.o
+ *fill*         0x00000000f00037ca        0x2 
+ .rodata.str1.4
+                0x00000000f00037cc       0x1a drivers/soc/sunxi/pm/standby/standby_power.o
+ *fill*         0x00000000f00037e6        0x2 
+ .rodata.str1.4
+                0x00000000f00037e8       0x17 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ *fill*         0x00000000f00037ff        0x1 
+ .rodata.str1.4
+                0x00000000f0003800       0x25 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ *fill*         0x00000000f0003825        0x3 
+ .rodata.str1.4
+                0x00000000f0003828       0x1a drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ *fill*         0x00000000f0003842        0x2 
+ .rodata.str1.4
+                0x00000000f0003844       0x1b drivers/soc/sunxi/pm/standby/./../mem_int.o
+ *fill*         0x00000000f000385f        0x1 
+ .rodata.str1.4
+                0x00000000f0003860       0x34 drivers/soc/sunxi/pm/standby/./dram/standby.o
+                                         0x33 (size before relaxing)
+
+.glue_7         0x00000000f0003894        0x0
+ .glue_7        0x00000000f0003894        0x0 linker stubs
+
+.glue_7t        0x00000000f0003894        0x0
+ .glue_7t       0x00000000f0003894        0x0 linker stubs
+
+.vfp11_veneer   0x00000000f0003894        0x0
+ .vfp11_veneer  0x00000000f0003894        0x0 linker stubs
+
+.v4_bx          0x00000000f0003894        0x0
+ .v4_bx         0x00000000f0003894        0x0 linker stubs
+
+.iplt           0x00000000f0003894        0x0
+ .iplt          0x00000000f0003894        0x0 drivers/soc/sunxi/pm/standby/standby.o
+
+.rel.dyn        0x00000000f0003894        0x0
+ .rel.iplt      0x00000000f0003894        0x0 drivers/soc/sunxi/pm/standby/standby.o
+
+.data           0x00000000f0003894       0xb0
+ *(.data)
+ .data          0x00000000f0003894        0x0 drivers/soc/sunxi/pm/standby/standby.o
+ .data          0x00000000f0003894        0x0 drivers/soc/sunxi/pm/standby/common.o
+ .data          0x00000000f0003894        0x0 drivers/soc/sunxi/pm/standby/standby_clock.o
+ .data          0x00000000f0003894        0x0 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .data          0x00000000f0003894        0x0 drivers/soc/sunxi/pm/standby/standby_key.o
+ .data          0x00000000f0003894       0xa8 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/standby_power.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/standby_twi.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/standby_delay.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .data          0x00000000f000393c        0x0 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .data          0x00000000f000393c        0x8 drivers/soc/sunxi/pm/standby/./dram/standby.o
+                0x00000000f000393c                dram_crc_start
+                0x00000000f0003940                dram_crc_len
+                0x00000000f0003944                __bss_start = .
+
+.igot.plt       0x00000000f0003944        0x0
+ .igot.plt      0x00000000f0003944        0x0 drivers/soc/sunxi/pm/standby/standby.o
+
+.bss            0x00000000f0003944      0x4f4
+ *(.sbss)
+ *(.scommon)
+ *(.bss)
+ .bss           0x00000000f0003944       0x50 drivers/soc/sunxi/pm/standby/standby.o
+                0x00000000f0003948                d_cache_miss_start
+                0x00000000f000394c                d_tlb_miss_start
+                0x00000000f0003950                i_tlb_miss_start
+                0x00000000f0003954                i_cache_miss_start
+                0x00000000f0003968                dram_suspend_flag
+                0x00000000f0003984                i_cache_miss_end
+                0x00000000f0003988                i_tlb_miss_end
+                0x00000000f000398c                d_tlb_miss_end
+                0x00000000f0003990                d_cache_miss_end
+ .bss           0x00000000f0003994        0x0 drivers/soc/sunxi/pm/standby/common.o
+ .bss           0x00000000f0003994       0x20 drivers/soc/sunxi/pm/standby/standby_clock.o
+ .bss           0x00000000f00039b4        0x0 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .bss           0x00000000f00039b4        0xc drivers/soc/sunxi/pm/standby/standby_key.o
+ .bss           0x00000000f00039c0       0x18 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .bss           0x00000000f00039d8        0x0 drivers/soc/sunxi/pm/standby/standby_power.o
+ .bss           0x00000000f00039d8        0xc drivers/soc/sunxi/pm/standby/standby_twi.o
+ .bss           0x00000000f00039e4        0x0 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .bss           0x00000000f00039e4        0x0 drivers/soc/sunxi/pm/standby/standby_delay.o
+ .bss           0x00000000f00039e4        0x4 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+                0x00000000f00039e4                print_flag
+ .bss           0x00000000f00039e8       0x10 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .bss           0x00000000f00039f8        0x0 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .bss           0x00000000f00039f8        0x0 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+ .bss           0x00000000f00039f8       0x14 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .bss           0x00000000f0003a0c      0x100 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .bss           0x00000000f0003b0c        0x0 drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+ .bss           0x00000000f0003b0c        0x0 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .bss           0x00000000f0003b0c        0x4 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .bss           0x00000000f0003b10        0x4 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .bss           0x00000000f0003b14       0x10 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .bss           0x00000000f0003b24        0x0 drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .bss           0x00000000f0003b24       0x10 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .bss           0x00000000f0003b34        0x4 drivers/soc/sunxi/pm/standby/./dram/standby.o
+                0x00000000f0003b34                dram_crc_en
+ *(COMMON)
+ COMMON         0x00000000f0003b38      0x300 drivers/soc/sunxi/pm/standby/standby.o
+                0x00000000f0003b38                extended_standby_para_info
+                0x00000000f0003d5c                power_regu_tree
+                0x00000000f0003dac                pm_info
+                0x00000000f0003e24                normal_standby_para_info
+                0x00000000f0003e38                __bss_end = .
+                0x00000000f0003e38                __standby_end = .
+LOAD drivers/soc/sunxi/pm/standby/common.o
+LOAD drivers/soc/sunxi/pm/standby/standby_clock.o
+LOAD drivers/soc/sunxi/pm/standby/standby_ir.o
+LOAD drivers/soc/sunxi/pm/standby/standby_key.o
+LOAD drivers/soc/sunxi/pm/standby/axp209_power.o
+LOAD drivers/soc/sunxi/pm/standby/standby_power.o
+LOAD drivers/soc/sunxi/pm/standby/standby_twi.o
+LOAD drivers/soc/sunxi/pm/standby/standby_usb.o
+LOAD drivers/soc/sunxi/pm/standby/standby_delay.o
+LOAD drivers/soc/sunxi/pm/standby/./../pm_debug.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_timing.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_serial.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_printk.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_int.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+LOAD drivers/soc/sunxi/pm/standby/./../mem_clk.o
+LOAD drivers/soc/sunxi/pm/standby/standby.o
+LOAD drivers/soc/sunxi/pm/standby/./dram/standby.o
+OUTPUT(drivers/soc/sunxi/pm/standby/standby.elf elf32-littlearm)
+
+.debug_info     0x0000000000000000     0xd1f9
+ .debug_info    0x0000000000000000     0x1537 drivers/soc/sunxi/pm/standby/standby.o
+ .debug_info    0x0000000000001537      0x683 drivers/soc/sunxi/pm/standby/common.o
+ .debug_info    0x0000000000001bba     0x140a drivers/soc/sunxi/pm/standby/standby_clock.o
+ .debug_info    0x0000000000002fc4      0x673 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .debug_info    0x0000000000003637      0x7dc drivers/soc/sunxi/pm/standby/standby_key.o
+ .debug_info    0x0000000000003e13      0xbcb drivers/soc/sunxi/pm/standby/axp209_power.o
+ .debug_info    0x00000000000049de      0x7e1 drivers/soc/sunxi/pm/standby/standby_power.o
+ .debug_info    0x00000000000051bf      0x8dc drivers/soc/sunxi/pm/standby/standby_twi.o
+ .debug_info    0x0000000000005a9b      0x691 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .debug_info    0x000000000000612c      0x6fc drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .debug_info    0x0000000000006828      0x942 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .debug_info    0x000000000000716a      0x4e2 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .debug_info    0x000000000000764c       0xaf drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+ .debug_info    0x00000000000076fb     0x13f4 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .debug_info    0x0000000000008aef      0xd9c drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .debug_info    0x000000000000988b       0xab drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+ .debug_info    0x0000000000009936      0x51b drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .debug_info    0x0000000000009e51      0x6f1 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .debug_info    0x000000000000a542      0x55f drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .debug_info    0x000000000000aaa1      0x831 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .debug_info    0x000000000000b2d2      0x46f drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .debug_info    0x000000000000b741     0x1130 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .debug_info    0x000000000000c871      0x988 drivers/soc/sunxi/pm/standby/./dram/standby.o
+
+.debug_abbrev   0x0000000000000000     0x26e9
+ .debug_abbrev  0x0000000000000000      0x29f drivers/soc/sunxi/pm/standby/standby.o
+ .debug_abbrev  0x000000000000029f      0x11b drivers/soc/sunxi/pm/standby/common.o
+ .debug_abbrev  0x00000000000003ba      0x26f drivers/soc/sunxi/pm/standby/standby_clock.o
+ .debug_abbrev  0x0000000000000629      0x124 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .debug_abbrev  0x000000000000074d      0x175 drivers/soc/sunxi/pm/standby/standby_key.o
+ .debug_abbrev  0x00000000000008c2      0x23e drivers/soc/sunxi/pm/standby/axp209_power.o
+ .debug_abbrev  0x0000000000000b00      0x188 drivers/soc/sunxi/pm/standby/standby_power.o
+ .debug_abbrev  0x0000000000000c88      0x1e2 drivers/soc/sunxi/pm/standby/standby_twi.o
+ .debug_abbrev  0x0000000000000e6a      0x14f drivers/soc/sunxi/pm/standby/standby_usb.o
+ .debug_abbrev  0x0000000000000fb9      0x215 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .debug_abbrev  0x00000000000011ce      0x2b5 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .debug_abbrev  0x0000000000001483      0x117 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .debug_abbrev  0x000000000000159a       0x14 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+ .debug_abbrev  0x00000000000015ae      0x3be drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .debug_abbrev  0x000000000000196c      0x2d2 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .debug_abbrev  0x0000000000001c3e       0x14 drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+ .debug_abbrev  0x0000000000001c52      0x155 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .debug_abbrev  0x0000000000001da7      0x17d drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .debug_abbrev  0x0000000000001f24      0x171 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .debug_abbrev  0x0000000000002095      0x176 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .debug_abbrev  0x000000000000220b       0xd2 drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .debug_abbrev  0x00000000000022dd      0x251 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .debug_abbrev  0x000000000000252e      0x1bb drivers/soc/sunxi/pm/standby/./dram/standby.o
+
+.debug_loc      0x0000000000000000     0x2754
+ .debug_loc     0x0000000000000000      0x10e drivers/soc/sunxi/pm/standby/standby.o
+ .debug_loc     0x000000000000010e      0x11a drivers/soc/sunxi/pm/standby/common.o
+ .debug_loc     0x0000000000000228       0xff drivers/soc/sunxi/pm/standby/standby_clock.o
+ .debug_loc     0x0000000000000327      0x44b drivers/soc/sunxi/pm/standby/axp209_power.o
+ .debug_loc     0x0000000000000772      0x18d drivers/soc/sunxi/pm/standby/standby_power.o
+ .debug_loc     0x00000000000008ff      0x35f drivers/soc/sunxi/pm/standby/standby_twi.o
+ .debug_loc     0x0000000000000c5e       0x21 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .debug_loc     0x0000000000000c7f       0x97 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .debug_loc     0x0000000000000d16      0x2a3 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .debug_loc     0x0000000000000fb9      0x545 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .debug_loc     0x00000000000014fe      0x967 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .debug_loc     0x0000000000001e65       0xd8 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .debug_loc     0x0000000000001f3d      0x1e7 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .debug_loc     0x0000000000002124       0xb9 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .debug_loc     0x00000000000021dd       0x6b drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .debug_loc     0x0000000000002248      0x297 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .debug_loc     0x00000000000024df      0x275 drivers/soc/sunxi/pm/standby/./dram/standby.o
+
+.debug_aranges  0x0000000000000000      0x2d8
+ .debug_aranges
+                0x0000000000000000       0x20 drivers/soc/sunxi/pm/standby/standby.o
+ .debug_aranges
+                0x0000000000000020       0x20 drivers/soc/sunxi/pm/standby/common.o
+ .debug_aranges
+                0x0000000000000040       0x20 drivers/soc/sunxi/pm/standby/standby_clock.o
+ .debug_aranges
+                0x0000000000000060       0x20 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .debug_aranges
+                0x0000000000000080       0x20 drivers/soc/sunxi/pm/standby/standby_key.o
+ .debug_aranges
+                0x00000000000000a0       0x20 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .debug_aranges
+                0x00000000000000c0       0x20 drivers/soc/sunxi/pm/standby/standby_power.o
+ .debug_aranges
+                0x00000000000000e0       0x20 drivers/soc/sunxi/pm/standby/standby_twi.o
+ .debug_aranges
+                0x0000000000000100       0x20 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .debug_aranges
+                0x0000000000000120       0x20 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .debug_aranges
+                0x0000000000000140       0x20 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .debug_aranges
+                0x0000000000000160       0x20 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .debug_aranges
+                0x0000000000000180       0x20 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+ .debug_aranges
+                0x00000000000001a0       0x20 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .debug_aranges
+                0x00000000000001c0       0x20 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .debug_aranges
+                0x00000000000001e0       0x20 drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+ .debug_aranges
+                0x0000000000000200       0x20 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .debug_aranges
+                0x0000000000000220       0x20 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .debug_aranges
+                0x0000000000000240       0x20 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .debug_aranges
+                0x0000000000000260       0x20 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .debug_aranges
+                0x0000000000000280       0x18 drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .debug_aranges
+                0x0000000000000298       0x20 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .debug_aranges
+                0x00000000000002b8       0x20 drivers/soc/sunxi/pm/standby/./dram/standby.o
+
+.debug_ranges   0x0000000000000000      0x1d0
+ .debug_ranges  0x0000000000000000       0x28 drivers/soc/sunxi/pm/standby/standby.o
+ .debug_ranges  0x0000000000000028       0x50 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .debug_ranges  0x0000000000000078       0xa0 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .debug_ranges  0x0000000000000118       0xb8 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+
+.debug_line     0x0000000000000000     0x24aa
+ .debug_line    0x0000000000000000      0x292 drivers/soc/sunxi/pm/standby/standby.o
+ .debug_line    0x0000000000000292      0x120 drivers/soc/sunxi/pm/standby/common.o
+ .debug_line    0x00000000000003b2      0x2a7 drivers/soc/sunxi/pm/standby/standby_clock.o
+ .debug_line    0x0000000000000659      0x110 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .debug_line    0x0000000000000769      0x153 drivers/soc/sunxi/pm/standby/standby_key.o
+ .debug_line    0x00000000000008bc      0x205 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .debug_line    0x0000000000000ac1      0x160 drivers/soc/sunxi/pm/standby/standby_power.o
+ .debug_line    0x0000000000000c21      0x1ec drivers/soc/sunxi/pm/standby/standby_twi.o
+ .debug_line    0x0000000000000e0d      0x114 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .debug_line    0x0000000000000f21      0x12f drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .debug_line    0x0000000000001050      0x169 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .debug_line    0x00000000000011b9      0x12e drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .debug_line    0x00000000000012e7      0x1b1 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+ .debug_line    0x0000000000001498      0x25c drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .debug_line    0x00000000000016f4      0x388 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .debug_line    0x0000000000001a7c       0xad drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+ .debug_line    0x0000000000001b29       0xf0 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .debug_line    0x0000000000001c19      0x160 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .debug_line    0x0000000000001d79      0x10f drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .debug_line    0x0000000000001e88      0x13e drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .debug_line    0x0000000000001fc6       0xae drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .debug_line    0x0000000000002074      0x1e8 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .debug_line    0x000000000000225c      0x24e drivers/soc/sunxi/pm/standby/./dram/standby.o
+
+.debug_str      0x0000000000000000     0x28be
+ .debug_str     0x0000000000000000     0x10f1 drivers/soc/sunxi/pm/standby/standby.o
+                                       0x11fe (size before relaxing)
+ .debug_str     0x00000000000010f1       0x36 drivers/soc/sunxi/pm/standby/common.o
+                                        0x717 (size before relaxing)
+ .debug_str     0x0000000000001127      0x60a drivers/soc/sunxi/pm/standby/standby_clock.o
+                                        0xfc9 (size before relaxing)
+ .debug_str     0x0000000000001731       0x6e drivers/soc/sunxi/pm/standby/standby_ir.o
+                                        0x741 (size before relaxing)
+ .debug_str     0x000000000000179f       0xef drivers/soc/sunxi/pm/standby/standby_key.o
+                                        0x8f3 (size before relaxing)
+ .debug_str     0x000000000000188e      0x241 drivers/soc/sunxi/pm/standby/axp209_power.o
+                                        0xa55 (size before relaxing)
+ .debug_str     0x0000000000001acf       0xbd drivers/soc/sunxi/pm/standby/standby_power.o
+                                        0x818 (size before relaxing)
+ .debug_str     0x0000000000001b8c      0x103 drivers/soc/sunxi/pm/standby/standby_twi.o
+                                        0x946 (size before relaxing)
+ .debug_str     0x0000000000001c8f       0x82 drivers/soc/sunxi/pm/standby/standby_usb.o
+                                        0x75a (size before relaxing)
+ .debug_str     0x0000000000001d11      0x121 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+                                        0x7f2 (size before relaxing)
+ .debug_str     0x0000000000001e32      0x137 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+                                        0x8bd (size before relaxing)
+ .debug_str     0x0000000000001f69       0x69 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+                                        0x600 (size before relaxing)
+ .debug_str     0x0000000000001fd2      0x1da drivers/soc/sunxi/pm/standby/./../mem_serial.o
+                                        0xdb1 (size before relaxing)
+ .debug_str     0x00000000000021ac       0xde drivers/soc/sunxi/pm/standby/./../mem_printk.o
+                                        0x7db (size before relaxing)
+ .debug_str     0x000000000000228a       0x5c drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+                                        0x613 (size before relaxing)
+ .debug_str     0x00000000000022e6       0x87 drivers/soc/sunxi/pm/standby/./../mem_int.o
+                                        0x932 (size before relaxing)
+ .debug_str     0x000000000000236d       0x8b drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+                                        0x64c (size before relaxing)
+ .debug_str     0x00000000000023f8      0x237 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+                                        0x943 (size before relaxing)
+ .debug_str     0x000000000000262f       0x2f drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+                                        0x5c6 (size before relaxing)
+ .debug_str     0x000000000000265e       0xf9 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+                                        0xd33 (size before relaxing)
+ .debug_str     0x0000000000002757      0x167 drivers/soc/sunxi/pm/standby/./dram/standby.o
+                                        0x9c3 (size before relaxing)
+
+.comment        0x0000000000000000       0x34
+ .comment       0x0000000000000000       0x34 drivers/soc/sunxi/pm/standby/standby.o
+                                         0x35 (size before relaxing)
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/common.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/standby_clock.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/standby_key.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/standby_power.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/standby_twi.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .comment       0x0000000000000034       0x35 drivers/soc/sunxi/pm/standby/./dram/standby.o
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/standby.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/common.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/standby_clock.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/standby_key.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/standby_power.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/standby_twi.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 drivers/soc/sunxi/pm/standby/./dram/standby.o
+
+.ARM.attributes
+                0x0000000000000000       0x2f
+ .ARM.attributes
+                0x0000000000000000       0x31 drivers/soc/sunxi/pm/standby/standby.o
+ .ARM.attributes
+                0x0000000000000031       0x31 drivers/soc/sunxi/pm/standby/common.o
+ .ARM.attributes
+                0x0000000000000062       0x31 drivers/soc/sunxi/pm/standby/standby_clock.o
+ .ARM.attributes
+                0x0000000000000093       0x31 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .ARM.attributes
+                0x00000000000000c4       0x31 drivers/soc/sunxi/pm/standby/standby_key.o
+ .ARM.attributes
+                0x00000000000000f5       0x31 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .ARM.attributes
+                0x0000000000000126       0x31 drivers/soc/sunxi/pm/standby/standby_power.o
+ .ARM.attributes
+                0x0000000000000157       0x31 drivers/soc/sunxi/pm/standby/standby_twi.o
+ .ARM.attributes
+                0x0000000000000188       0x31 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .ARM.attributes
+                0x00000000000001b9       0x1f drivers/soc/sunxi/pm/standby/standby_delay.o
+ .ARM.attributes
+                0x00000000000001d8       0x31 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .ARM.attributes
+                0x0000000000000209       0x31 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .ARM.attributes
+                0x000000000000023a       0x31 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .ARM.attributes
+                0x000000000000026b       0x1f drivers/soc/sunxi/pm/standby/./../mem_mmu_pc_asm.o
+ .ARM.attributes
+                0x000000000000028a       0x31 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .ARM.attributes
+                0x00000000000002bb       0x31 drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .ARM.attributes
+                0x00000000000002ec       0x1f drivers/soc/sunxi/pm/standby/./../mem_divlib.o
+ .ARM.attributes
+                0x000000000000030b       0x31 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .ARM.attributes
+                0x000000000000033c       0x31 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .ARM.attributes
+                0x000000000000036d       0x31 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .ARM.attributes
+                0x000000000000039e       0x31 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .ARM.attributes
+                0x00000000000003cf       0x2f drivers/soc/sunxi/pm/standby/./../mem_tmstmp.o
+ .ARM.attributes
+                0x00000000000003fe       0x31 drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .ARM.attributes
+                0x000000000000042f       0x31 drivers/soc/sunxi/pm/standby/./dram/standby.o
+
+.debug_frame    0x0000000000000000      0xbc8
+ .debug_frame   0x0000000000000000       0x60 drivers/soc/sunxi/pm/standby/standby.o
+ .debug_frame   0x0000000000000060       0x20 drivers/soc/sunxi/pm/standby/common.o
+ .debug_frame   0x0000000000000080      0x1a8 drivers/soc/sunxi/pm/standby/standby_clock.o
+ .debug_frame   0x0000000000000228       0x50 drivers/soc/sunxi/pm/standby/standby_ir.o
+ .debug_frame   0x0000000000000278       0x4c drivers/soc/sunxi/pm/standby/standby_key.o
+ .debug_frame   0x00000000000002c4       0xa8 drivers/soc/sunxi/pm/standby/axp209_power.o
+ .debug_frame   0x000000000000036c       0x4c drivers/soc/sunxi/pm/standby/standby_power.o
+ .debug_frame   0x00000000000003b8       0x50 drivers/soc/sunxi/pm/standby/standby_twi.o
+ .debug_frame   0x0000000000000408       0x50 drivers/soc/sunxi/pm/standby/standby_usb.o
+ .debug_frame   0x0000000000000458      0x148 drivers/soc/sunxi/pm/standby/./../pm_debug.o
+ .debug_frame   0x00000000000005a0       0xe0 drivers/soc/sunxi/pm/standby/./../mem_timing.o
+ .debug_frame   0x0000000000000680       0x40 drivers/soc/sunxi/pm/standby/./../mem_mmu_pc.o
+ .debug_frame   0x00000000000006c0      0x110 drivers/soc/sunxi/pm/standby/./../mem_serial.o
+ .debug_frame   0x00000000000007d0      0x12c drivers/soc/sunxi/pm/standby/./../mem_printk.o
+ .debug_frame   0x00000000000008fc       0x30 drivers/soc/sunxi/pm/standby/./../mem_divlibc.o
+ .debug_frame   0x000000000000092c       0x64 drivers/soc/sunxi/pm/standby/./../mem_int.o
+ .debug_frame   0x0000000000000990       0x40 drivers/soc/sunxi/pm/standby/./../mem_gpio.o
+ .debug_frame   0x00000000000009d0       0x88 drivers/soc/sunxi/pm/standby/./../mem_tmr.o
+ .debug_frame   0x0000000000000a58      0x10c drivers/soc/sunxi/pm/standby/./../mem_clk.o
+ .debug_frame   0x0000000000000b64       0x64 drivers/soc/sunxi/pm/standby/./dram/standby.o

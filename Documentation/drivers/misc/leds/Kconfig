@@ -1,0 +1,10 @@
+#
+#  Touchscreen driver configuration
+#
+config  MISC_PWM_LEDS
+	tristate "LEDs by PWM Control driver"
+	depends on PWM
+	default m
+	help
+		Generic PWM framework driver for LEDS about breathing,and so on.
+

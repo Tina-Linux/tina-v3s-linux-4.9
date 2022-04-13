@@ -1,0 +1,22 @@
+diff --git a/drivers/power/supply/axp/axp20x/axp20x-gpio.c b/drivers/power/supply/axp/axp20x/axp20x-gpio.c
+index 145df81..85224be 100644
+--- a/drivers/power/supply/axp/axp20x/axp20x-gpio.c
++++ b/drivers/power/supply/axp/axp20x/axp20x-gpio.c
+@@ -258,6 +258,17 @@ static int axp20x_pmx_set(struct axp_dev *axp_dev, int gpio, int mux)
+ 
+ 	return -ENXIO;
+ }
++/*gpio num(0-3) ; mux level (0,1) */
++static int axp20x_pmx_set_exp(int gpio,int mux)
++{
++	u8 ret;
++	struct axp_dev *cur_axp_dev = get_pmu_cur_dev(axp20x_pmu_num);
++	ret = axp20x_pmx_set(cur_axp_dev,gpio,mux);
++	
++	return ret;
++
++}
++EXPORT_SYMBOL(axp20x_pmx_set_exp);
+ 
+ static int axp20x_pmx_get(struct axp_dev *axp_dev, int gpio)
+ {

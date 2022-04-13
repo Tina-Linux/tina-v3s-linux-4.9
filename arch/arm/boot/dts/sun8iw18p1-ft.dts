@@ -1,0 +1,54 @@
+/*
+ * Allwinner Technology CO., Ltd. sun8iw18p1 ft board.
+ *
+ * ft board support.
+ */
+
+/dts-v1/;
+
+#include "sun8iw18p1.dtsi"
+
+/{
+
+	soc@03000000 {
+
+	};
+
+	pwm_dvfs_info {
+		period_ns = <50000>;
+		polarity  = <0>;        /* 0:NORMAL 1:INVERSED */
+		pwm_id    = <7>;
+		vol_base  = <820000>;
+		vol_max   = <1150000>;
+	};
+
+	cpu_opp_l_table0: opp_l_table0 {
+		compatible = "operating-points-v2";
+		opp-shared;
+
+		opp00 {
+			opp-hz = /bits/ 64 <720000000>;
+			opp-microvolt = <820000>;
+			clock-latency-ns = <2000000>;
+		};
+
+		opp01 {
+			opp-hz = /bits/ 64 <1008000000>;
+			opp-microvolt = <900000>;
+			clock-latency-ns = <2000000>;
+		};
+
+		opp03 {
+			opp-hz = /bits/ 64 <1200000000>;
+			opp-microvolt = <1000000>;
+			clock-latency-ns = <2000000>;
+		};
+
+		opp04 {
+			opp-hz = /bits/ 64 <1512000000>;
+			opp-microvolt = <1100000>;
+			clock-latency-ns = <2000000>;
+		};
+
+	};
+};
